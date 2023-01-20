@@ -1,0 +1,84 @@
+:root {
+    --primary-color: #FF0000;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.sidebar {
+    flex: 0;
+    min-width: 400px;
+    padding: 32px;
+    background-color: #eee;
+}
+
+.preview {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo-wrapper {
+    text-align: center;
+}
+
+.logo {
+    max-width: 128px;
+}
+
+h1 {
+    margin: 32px 0 16px 0;
+    font-size: 24px;
+}
+
+.required {
+    color: red;
+}
+
+select {
+    width: 100%;
+    margin: 4px 0 16px 0;
+    padding: 8px;
+    border: solid 1px #888;
+    border-radius: 4px;
+    outline: none;
+}
+
+label {
+    font-weight: 800;
+    font-size: 11px;
+}
+
+input {
+    width: 100%;
+    margin: 4px 0 16px 0;
+    padding: 8px;
+    border: none;
+    border-radius: 4px;
+    outline: none;
+}
+
+button {
+    width: 100%;
+    margin-top: 16px;
+    padding: 16px;
+    background-color: transparent;
+    border: solid 2px var(--primary-color);
+    border-radius: 4px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--primary-color);
+    outline: none;
+    transition: all 200ms;
+}
+
+button:hover {
+    background-color: var(--primary-color);
+    color: #fff;
+    cursor: pointer;
+}
