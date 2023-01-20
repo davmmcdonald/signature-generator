@@ -5,13 +5,14 @@
 body {
     min-height: 100vh;
     display: flex;
+    background-color: #eee;
 }
 
 .sidebar {
     flex: 0;
     min-width: 400px;
     padding: 32px;
-    background-color: #eee;
+    background-image: linear-gradient(var(--primary-color), #8b0000);
 }
 
 .preview {
@@ -19,6 +20,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 16px;
 }
 
 .logo-wrapper {
@@ -33,25 +35,22 @@ h1 {
     margin: 32px 0 16px 0;
     font-family: 'Open Sans', sans-serif;
     font-size: 24px;
-}
-
-.required {
-    color: red;
+    color: #fff;
 }
 
 select {
     width: 100%;
     margin: 4px 0 16px 0;
     padding: 8px;
-    border: solid 1px #888;
+    border: solid 1px #000;
     border-radius: 4px;
     font-family: 'Open Sans', sans-serif;
     outline: none;
 }
 
 label {
-    font-weight: 800;
-    font-size: 11px;
+    font-size: 13px;
+    color: #fff;
 }
 
 input {
@@ -69,25 +68,26 @@ button {
     margin-top: 16px;
     padding: 16px;
     background-color: transparent;
-    border: solid 2px var(--primary-color);
+    border: solid 2px #fff;
     border-radius: 4px;
     font-family: 'Open Sans', sans-serif;
     font-weight: 800;
     text-transform: uppercase;
-    color: var(--primary-color);
+    color: #fff;
     outline: none;
     transition: all 200ms;
 }
 
 button:hover {
-    background-color: var(--primary-color);
-    color: #fff;
+    background-color: #fff;
+    color: var(--primary-color);
     cursor: pointer;
 }
 
 #signatureWrapper {
     padding: 16px;
     box-shadow: 2px 2px 8px rgb(0, 0, 0, 0.15);
+    background-color: #fff;
     -webkit-user-select: none; /* Safari */
     -ms-user-select: none; /* IE 10 and IE 11 */
     user-select: none; /* Standard syntax */
@@ -97,7 +97,7 @@ button:hover {
     margin-top: 8px;
     font-family: 'Open Sans', sans-serif;
     font-size: 15px;
-    color: #888;
+    color: #eee;
 }
 
 #hidden {

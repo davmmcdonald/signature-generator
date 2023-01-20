@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Email Signature Generator</title>
+    <title>Hoff & Leigh Email Signature Generator</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reseter.css">
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
@@ -20,27 +20,27 @@
             <img src="assets/hoffleigh-logo.jpg" class="logo">
         </div>
         <h1>Signature Generator</h1>
-        <label for="office">Office Template<span class="required"> *</span></label>
+        <label for="office">Office Template:</label>
         <select id="office" name="office" required>
             <option value="network">Network</option>
             <option value="colorado-springs">Colorado Springs</option>
             <option value="denver">Denver</option>
             <option value="northeast-ohio">Northeast Ohio</option>
         </select>
-        <label for="name">Full Name<span class="required"> *</span></label>
+        <label for="name">Full Name:</label>
         <input type="text" id="name" name="name" required>
-        <label for="title">Title<span class="required"> *</span></label>
+        <label for="title">Title:</label>
         <input type="text" id="title" name="title" required> 
-        <label for="email">Email<span class="required"> *</span></label>
+        <label for="email">Email:</label>
         <input type="email" id="email" name="email" required>
-        <label for="phone">Mobile Phone<span class="required"> *</span></label>
+        <label for="phone">Mobile Phone:</label>
         <input type="tel" id="phone" name="phone" required>
         <button id="submitButton">Copy HTML</button>
         <p id="alert" style="visibility: hidden;">Copied!</p>
     </div>
     <table id="hidden">
         <tr id="mobilePhone"> 
-            <td style="width: 28px;"><img src="https://www.hoffleigh.com/wp-content/uploads/2023/01/mobile.png"></td>
+            <td style="width: 28px;"><img style="width: 20px;" src="https://www.hoffleigh.com/wp-content/uploads/2023/01/mobile.png"></td>
             <td id="renderPhone" style="font-size: 13px;"><a href="tel:719.955.0527" style="color: #888888; text-decoration: none;">719.955.0527</a></td>
         </tr>
     </table>
@@ -67,29 +67,29 @@
                         </table>
                         <table>
                             <tr>
-                                <td style="width: 28px;"><img src="https://www.hoffleigh.com/wp-content/uploads/2023/01/email.png"></td>
+                                <td style="width: 28px;"><img style="width: 20px;" src="https://www.hoffleigh.com/wp-content/uploads/2023/01/email.png"></td>
                                 <td id="renderEmail" style="font-size: 13px;"><a href="mailto:dmcdonald@hoffleigh.com" style="color: #888888; text-decoration: none;">dmcdonald@hoffleigh.com</a></td>
                             </tr>
                             <tr id="officePhone">
-                                <td style="width: 28px;"><img src="https://www.hoffleigh.com/wp-content/uploads/2023/01/phone.png"></td>
+                                <td style="width: 28px;"><img style="width: 20px;" src="https://www.hoffleigh.com/wp-content/uploads/2023/01/phone.png"></td>
                                 <td id="renderOfficePhone" style="font-size: 13px;"><a href="tel:719.955.0527" style="color: #888888; text-decoration: none;">719.955.0527</a></td>
                             </tr>
                             <tr>
-                                <td style="width: 28px;"><img src="https://www.hoffleigh.com/wp-content/uploads/2023/01/map-marker.png"></td>
+                                <td style="width: 28px;"><img style="width: 20px;" src="https://www.hoffleigh.com/wp-content/uploads/2023/01/map-marker.png"></td>
                                 <td id="renderAddress" style="font-size: 13px; color: #888888;">25 N Spruce Street, Suite 330, Colorado Springs, CO 80905</td>
                             </tr>
                             <tr>
-                                <td style="width: 28px;"><img src="https://www.hoffleigh.com/wp-content/uploads/2023/01/link.png"></td>
+                                <td style="width: 28px;"><img style="width: 20px;" src="https://www.hoffleigh.com/wp-content/uploads/2023/01/link.png"></td>
                                 <td style="font-size: 13px;"><a href="https://www.hoffleigh.com/" target="_blank" style="font-weight: bold; color: #FF0000; text-decoration: none;">www.hoffleigh.com</a></td>
                             </tr>
                             <tr style="height: 8px"></tr>
                         </table>
                         <table>
                             <tr>
-                                <td><a id="renderFacebook" href="https://www.facebook.com/hoffleigh/"><img src="https://www.hoffleigh.com/wp-content/uploads/2023/01/facebook.png"></a></td>
-                                <td><a id="renderTwitter" href="https://twitter.com/hoffleigh/"><img src="https://www.hoffleigh.com/wp-content/uploads/2023/01/twitter.png"></a></td>
-                                <td><a id="renderInstagram" href="https://www.instagram.com/hoffleigh/"><img src="https://www.hoffleigh.com/wp-content/uploads/2023/01/instagram.png"></a></td>
-                                <td><a id="renderLinkedin" href="https://www.linkedin.com/company/hoffleigh/"><img src="https://www.hoffleigh.com/wp-content/uploads/2023/01/linkedin.png"></a></td>
+                                <td><a id="renderFacebook" href="https://www.facebook.com/hoffleigh/"><img style="width: 32px;" src="https://www.hoffleigh.com/wp-content/uploads/2023/01/facebook.png"></a></td>
+                                <td><a id="renderTwitter" href="https://twitter.com/hoffleigh/"><img style="width: 32px;" src="https://www.hoffleigh.com/wp-content/uploads/2023/01/twitter.png"></a></td>
+                                <td><a id="renderInstagram" href="https://www.instagram.com/hoffleigh/"><img style="width: 32px;" src="https://www.hoffleigh.com/wp-content/uploads/2023/01/instagram.png"></a></td>
+                                <td><a id="renderLinkedin" href="https://www.linkedin.com/company/hoffleigh/"><img style="width: 32px;" src="https://www.hoffleigh.com/wp-content/uploads/2023/01/linkedin.png"></a></td>
                             </tr>
                         </table>
                     </td>
