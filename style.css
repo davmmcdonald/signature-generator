@@ -40,8 +40,8 @@ h1 {
 
 select {
     width: 100%;
-    margin: 4px 0 16px 0;
-    padding: 8px;
+    margin: 4px 0 12px 0;
+    padding: 6px;
     border: solid 1px #000;
     border-radius: 4px;
     font-family: 'Open Sans', sans-serif;
@@ -56,8 +56,8 @@ label {
 
 input {
     width: 100%;
-    margin: 4px 0 16px 0;
-    padding: 8px;
+    margin: 4px 0 12px 0;
+    padding: 6px;
     border: none;
     border-radius: 4px;
     font-family: 'Open Sans', sans-serif;
@@ -66,8 +66,8 @@ input {
 
 button {
     width: 100%;
-    margin-top: 16px;
-    padding: 16px;
+    margin-top: 24px;
+    padding: 8px;
     background-color: transparent;
     border: solid 2px #fff;
     border-radius: 4px;
