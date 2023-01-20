@@ -22,7 +22,7 @@
         <h1>Signature Generator</h1>
         <label for="office">Office Template<span class="required"> *</span></label>
         <select id="office" name="office" required>
-            <option value="none" selected disabled hidden></option>
+            <option value="network">Network</option>
             <option value="colorado-springs">Colorado Springs</option>
             <option value="denver">Denver</option>
             <option value="northeast-ohio">Northeast Ohio</option>
@@ -35,63 +35,70 @@
         <input type="email" id="email" name="email" required>
         <label for="phone">Mobile Phone<span class="required"> *</span></label>
         <input type="tel" id="phone" name="phone" required>
-        <button>Copy HTML</button>
+        <button id="submitButton">Copy HTML</button>
+        <p id="alert" style="visibility: hidden;">Copied!</p>
     </div>
     <div class="preview">
-        <div id="signature-wrapper">
+        <div id="signatureWrapper">
+            <div><style>.sh-src a{color: #FF0000!important; text-decoration:none!important;}</style></div>
             <table style="max-width: 600px">
                 <tr>
-                    <td style="padding: 0 16px 0 0; vertical-align: top;">
-                        <img src="assets/hoffleigh-logo.jpg" style="width: 96px">
+                    <td style="width: 112px; vertical-align: top;">
+                        <img src="https://www.hoffleigh.com/wp-content/uploads/2023/01/hoffleigh-logo-signature.jpg">
                     </td>
-                    <td style="padding: 0 0 0 16px; border-left: solid 2px #FF0000;">
+                    <td style="width: 16px; border-left: solid 3px #FF0000;"></td>
+                    <td>
                         <table>
                             <tr>
                                 <td></td>
-                                <td id="renderName" style="font-size: 13px; font-weight: bold;">David McDonald</td>
+                                <td id="renderName" style="font-size: 15px; font-weight: bold;">David McDonald</td>
                             </tr>
                             <tr>
                                 <td></td>
                                 <td id="renderTitle" style="font-size: 13px; color: #888888">Marketing Manager&nbsp;</td>
                             </tr>
+                            <tr style="height: 8px"></tr>
                         </table>
                         <table>
                             <tr>
-                                <td><img src="assets/email.png"></td>
-                                <td id="renderEmail" style="font-size: 13px;"><a href="mailto:" style="color: #888888; text-decoration: none;">dmcdonald@hoffleigh.com</a></td>
+                                <td style="width: 28px;"><img src="https://www.hoffleigh.com/wp-content/uploads/2023/01/email.png"></td>
+                                <td id="renderEmail" style="font-size: 13px;"><a href="mailto:dmcdonald@hoffleigh.com" style="color: #888888; text-decoration: none;">dmcdonald@hoffleigh.com</a></td>
                             </tr>
                             <tr>
-                                <td><img src="assets/mobile.png"></td>
-                                <td id="renderPhone" style="font-size: 13px;"><a href="tel:" style="color: #888888; text-decoration: none;">719.645.5036</a></td>
+                                <td style="width: 28px;"><img src="https://www.hoffleigh.com/wp-content/uploads/2023/01/mobile.png"></td>
+                                <td id="renderPhone" style="font-size: 13px;"><a href="tel:719.955.0527" style="color: #888888; text-decoration: none;">719.955.0527</a></td>
                             </tr>
                             <tr>
-                                <td><img src="assets/phone.png"></td>
-                                <td id="renderOfficePhone" style="font-size: 13px;"><a href="tel:" style="color: #888888; text-decoration: none;">719.630.2277</a></td>
+                                <td style="width: 28px;"><img src="https://www.hoffleigh.com/wp-content/uploads/2023/01/phone.png"></td>
+                                <td id="renderOfficePhone" style="font-size: 13px;"><a href="tel:719.955.0527" style="color: #888888; text-decoration: none;">719.955.0527</a></td>
                             </tr>
                             <tr>
-                                <td><img src="assets/map-marker.png"></td>
-                                <td id="renderAddress" style="font-size: 13px; color: #888888">25 N Spruce Street, Suite 330, Colorado Springs, CO 80905</td>
+                                <td style="width: 28px;"><img src="https://www.hoffleigh.com/wp-content/uploads/2023/01/map-marker.png"></td>
+                                <td id="renderAddress" style="font-size: 13px; color: #888888;">25 N Spruce Street, Suite 330, Colorado Springs, CO 80905</td>
                             </tr>
                             <tr>
-                                <td><img src="assets/link.png"></td>
+                                <td style="width: 28px;"><img src="https://www.hoffleigh.com/wp-content/uploads/2023/01/link.png"></td>
                                 <td style="font-size: 13px;"><a href="https://www.hoffleigh.com/" target="_blank" style="font-weight: bold; color: #FF0000; text-decoration: none;">www.hoffleigh.com</a></td>
                             </tr>
+                            <tr style="height: 8px"></tr>
                         </table>
                         <table>
                             <tr>
-                                <td><a id="facebook" href="https://www.facebook.com/"><img src="assets/facebook.png"></a></td>
-                                <td><a id="twitter" href="https://twitter.com/"><img src="assets/twitter.png"></a></td>
-                                <td><a id="linkedin" href="https://www.linkedin.com/"><img src="assets/linkedin.png"></a></td>
-                                <td><a id="youtube" href="https://www.youtube.com/"><img src="assets/youtube.png"></a></td>
+                                <td><a id="renderFacebook" href="https://www.facebook.com/hoffleigh/"><img src="https://www.hoffleigh.com/wp-content/uploads/2023/01/facebook.png"></a></td>
+                                <td><a id="renderTwitter" href="https://twitter.com/hoffleigh/"><img src="https://www.hoffleigh.com/wp-content/uploads/2023/01/twitter.png"></a></td>
+                                <td><a id="renderInstagram" href="https://www.instagram.com/hoffleigh/"><img src="https://www.hoffleigh.com/wp-content/uploads/2023/01/instagram.png"></a></td>
+                                <td><a id="renderLinkedin" href="https://www.linkedin.com/company/hoffleigh/"><img src="https://www.hoffleigh.com/wp-content/uploads/2023/01/linkedin.png"></a></td>
                             </tr>
                         </table>
                     </td>
                 </tr>
             </table>
             <table style="max-width: 600px">
+                <tr style="height: 8px"></tr>
                 <tr>
-                    <td style="font-size: 15px; font-weight: bold;">Our Network is Your Edge.</td>
+                    <td style="font-size: 17px; font-weight: bold;">Our Network is Your Edge.</td>
                 </tr>
+                <tr style="height: 8px"></tr>
                 <tr>
                     <td style="font-size: 11px; color: #AAAAAA">The content of this email is confidential and intended for the recipient specified in message only. It is strictly forbidden to share any part of this message with any third party, without a written consent of the sender. If you received this message by mistake, please reply to this message and follow with its deletion, so that we can ensure such a mistake does not occur in the future.</td>
                 </tr>
