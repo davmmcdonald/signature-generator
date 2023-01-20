@@ -109,7 +109,8 @@ function updateTitle() {
 // Update signature mobile phone based on value entered in form
 function updatePhone() {
     if (formPhone.value !== '') {
-        if (!formPhone.value.includes('.')) {
+        formPhone.value = formPhone.value.replace(/\D/g,'');
+        if (formPhone.value.length === 10) {
             formPhone.value = `${formPhone.value.slice(0,3)}.${formPhone.value.slice(3,6)}.${formPhone.value.slice(6)}`;
         }
         renderPhone.firstChild.innerText = formPhone.value;
