@@ -106,6 +106,9 @@ function updateTitle() {
 // Update signature mobile phone based on value entered in form
 function updatePhone() {
     if (formPhone.value !== '') {
+        if (!formPhone.value.includes('.')) {
+            formPhone.value = `${formPhone.value.slice(0,3)}.${formPhone.value.slice(3,6)}.${formPhone.value.slice(6)}`;
+        }
         renderPhone.firstChild.innerText = formPhone.value;
         renderPhone.firstChild.href = `tel:${formPhone.value}`;
     } else {
@@ -117,6 +120,9 @@ function updatePhone() {
 // Update signature email based on value entered in form
 function updateEmail() {
     if (formEmail.value !== '') {
+        if (!formEmail.value.includes('@hoffleigh.com')) {
+            formEmail.value = `${formEmail.value}@hoffleigh.com`;
+        }
         renderEmail.firstChild.innerText = formEmail.value;
         renderEmail.firstChild.href = `mailto:${formEmail.value}`;
     } else {
