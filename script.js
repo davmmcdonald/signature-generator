@@ -47,6 +47,7 @@ const renderTitle = document.getElementById('renderTitle');
 const formPhone = document.getElementById('phone');
 const renderPhone = document.getElementById('renderPhone');
 const formEmail = document.getElementById('email');
+const formHTML = document.getElementById('html');
 const renderEmail = document.getElementById('renderEmail');
 const renderOfficePhone = document.getElementById('renderOfficePhone');
 const renderAddress = document.getElementById('renderAddress');
@@ -54,6 +55,7 @@ const renderFacebook = document.getElementById('renderFacebook');
 const renderTwitter = document.getElementById('renderTwitter');
 const renderInstagram= document.getElementById('renderInstagram');
 const renderLinkedin = document.getElementById('renderLinkedin');
+const renderHTML = document.getElementById('renderHTML');
 const submitButton = document.getElementById('submitButton');
 const hidden = document.getElementById('hidden');
 const officePhone = document.getElementById('officePhone');
@@ -67,6 +69,7 @@ formName.addEventListener('change', updateName);
 formTitle.addEventListener('change', updateTitle);
 formPhone.addEventListener('change', updatePhone);
 formEmail.addEventListener('change', updateEmail);
+formHTML.addEventListener('change', updateHTML);
 submitButton.addEventListener('click', copyHTML);
 
 // Update office phone and address, as defined in the office array
@@ -129,6 +132,10 @@ function updateEmail() {
         renderEmail.firstChild.innerText = 'dmcdonald@hoffleigh.com';
         renderEmail.firstChild.href = 'mailto:dmcdonald@hoffleigh.com';
     }
+}
+
+function updateHTML() {
+    renderHTML.innerHTML = formHTML.value;
 }
 
 // Copy signature as rich text to clipboard for pasting in Outlook

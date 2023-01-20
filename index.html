@@ -35,6 +35,8 @@
         <input type="email" id="email" name="email" placeholder="@hoffleigh.com not needed">
         <label for="phone">Mobile Phone:</label>
         <input type="tel" id="phone" name="phone">
+        <label for="html">Custom HTML:</label>
+        <textarea id="html" name="html"></textarea>
         <button id="submitButton">Copy to Clipboard</button>
         <p id="alert" style="visibility: hidden;">Copied!</p>
     </div>
@@ -96,6 +98,10 @@
                 </tr>
             </table>
             <table style="max-width: 600px">
+                <tr style="height: 8px"></tr>
+                <tr>
+                    <td id="renderHTML"></td>
+                </tr>
                 <tr style="height: 8px"></tr>
                 <tr>
                     <td style="font-size: 17px; font-weight: bold;">Our Network is Your Edge.</td>
