@@ -123,7 +123,7 @@ function updatePhone() {
 // Update signature email based on value entered in form
 function updateEmail() {
     if (formEmail.value !== '') {
-        if (!formEmail.value.includes('@hoffleigh.com')) {
+        if (!formEmail.value.includes('@')) {
             formEmail.value = `${formEmail.value}@hoffleigh.com`;
         }
         renderEmail.firstChild.innerText = formEmail.value;
