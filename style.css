@@ -99,3 +99,7 @@ button:hover {
     font-size: 15px;
     color: #888;
 }
+
+#hidden {
+    display: none;
+}

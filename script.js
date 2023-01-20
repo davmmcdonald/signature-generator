@@ -1,3 +1,4 @@
+// Initialize preset information for each office location
 let offices = [
     {
         'name': 'network',
@@ -37,6 +38,7 @@ let offices = [
     },
 ];
 
+// Select various elements in the HTML
 const formOffice = document.getElementById('office');
 const formName = document.getElementById('name');
 const renderName = document.getElementById('renderName');
@@ -53,9 +55,13 @@ const renderTwitter = document.getElementById('renderTwitter');
 const renderInstagram= document.getElementById('renderInstagram');
 const renderLinkedin = document.getElementById('renderLinkedin');
 const submitButton = document.getElementById('submitButton');
+const hidden = document.getElementById('hidden');
+const officePhone = document.getElementById('officePhone');
+const mobilePhone = document.getElementById('mobilePhone');
 const signatureWrapper = document.getElementById('signatureWrapper');
 const alert = document.getElementById('alert');
 
+// Set up event listeners for changes in form
 formOffice.addEventListener('change', updateOffice);
 formName.addEventListener('change', updateName);
 formTitle.addEventListener('change', updateTitle);
@@ -63,6 +69,7 @@ formPhone.addEventListener('change', updatePhone);
 formEmail.addEventListener('change', updateEmail);
 submitButton.addEventListener('click', copyHTML);
 
+// Update office phone and address, as defined in the office array
 function updateOffice() {
     const result = offices.filter(office => office.name === formOffice.value);
     renderOfficePhone.firstChild.innerText = result[0].phone;
@@ -72,8 +79,14 @@ function updateOffice() {
     renderTwitter.href = result[0].twitter;
     renderInstagram.href = result[0].instagram;
     renderLinkedin.href = result[0].linkedin;
+    if (formOffice.value === 'network') {
+        hidden.appendChild(mobilePhone);
+    } else {
+        officePhone.parentElement.insertBefore(mobilePhone, officePhone);
+    }
 }
 
+// Update signature name based on value entered in form
 function updateName() {
     if (formName.value !== '') {
         renderName.innerText = formName.value;
@@ -82,6 +95,7 @@ function updateName() {
     }
 }
 
+// Update signature title based on value entered in form
 function updateTitle() {
     if (formTitle.value !== '') {
         renderTitle.innerText = formTitle.value;
@@ -89,7 +103,7 @@ function updateTitle() {
         renderTitle.innerText = 'Marketing Manager';
     }
 }
-
+// Update signature mobile phone based on value entered in form
 function updatePhone() {
     if (formPhone.value !== '') {
         renderPhone.firstChild.innerText = formPhone.value;
@@ -100,6 +114,7 @@ function updatePhone() {
     }
 }
 
+// Update signature email based on value entered in form
 function updateEmail() {
     if (formEmail.value !== '') {
         renderEmail.firstChild.innerText = formEmail.value;
@@ -110,6 +125,7 @@ function updateEmail() {
     }
 }
 
+// Copy signature as rich text to clipboard for pasting in Outlook
 function copyHTML() {
     const listener = event => {
       event.preventDefault();
@@ -122,11 +138,13 @@ function copyHTML() {
     alertOn();
   }
 
+// Shows "copied" notification under form button
 function alertOn() {
     alert.style.visibility = 'visible';
     window.setTimeout(alertOff, 3000);
 }
 
+// Hides "copied" notification under form button
 function alertOff() {
     alert.style.visibility = 'hidden';
 }
