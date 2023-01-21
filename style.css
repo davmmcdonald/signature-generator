@@ -17,6 +17,8 @@ body {
 
 .preview {
     flex: 1;
+    position: sticky;
+    top: 0;
     max-height: 100vh;
     display: flex;
     justify-content: center;
