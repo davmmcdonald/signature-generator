@@ -64,6 +64,21 @@ const mobilePhone = document.getElementById('mobilePhone');
 const signatureWrapper = document.getElementById('signatureWrapper');
 const alert = document.getElementById('alert');
 
+// Pull in search parameters, if they exist
+const urlParameters = new URLSearchParams(window.location.search);
+if (urlParameters.get('office')) {
+    formOffice.value = urlParameters.get('office');
+}
+if (urlParameters.get('name')) {
+    formName.value = urlParameters.get('name');
+}
+if (urlParameters.get('email')) {
+    formEmail.value = urlParameters.get('email');
+}
+if (urlParameters.get('phone')) {
+    formPhone.value = urlParameters.get('phone');
+}
+
 // Set up event listeners for changes in form
 formOffice.addEventListener('change', updateOffice);
 formName.addEventListener('change', updateName);
@@ -172,3 +187,4 @@ function downloadSignature() {
     link.click();
     document.removeChild(link);
 }
+
