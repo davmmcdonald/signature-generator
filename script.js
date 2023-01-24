@@ -56,7 +56,8 @@ const renderTwitter = document.getElementById('renderTwitter');
 const renderInstagram= document.getElementById('renderInstagram');
 const renderLinkedin = document.getElementById('renderLinkedin');
 const renderHTML = document.getElementById('renderHTML');
-const submitButton = document.getElementById('submitButton');
+const copyButton = document.getElementById('copyButton');
+const downloadButton = document.getElementById('downloadButton');
 const hidden = document.getElementById('hidden');
 const officePhone = document.getElementById('officePhone');
 const mobilePhone = document.getElementById('mobilePhone');
@@ -70,7 +71,8 @@ formTitle.addEventListener('change', updateTitle);
 formPhone.addEventListener('change', updatePhone);
 formEmail.addEventListener('change', updateEmail);
 formHTML.addEventListener('change', updateHTML);
-submitButton.addEventListener('click', copyHTML);
+copyButton.addEventListener('click', copyHTML);
+downloadButton.addEventListener('click', downloadSignature);
 
 // Update office phone and address, as defined in the office array
 function updateOffice() {
@@ -150,6 +152,7 @@ function copyHTML() {
     document.execCommand('copy');
     document.removeEventListener('copy', listener);
     alertOn();
+    downloadSignature();
   }
 
 // Shows "copied" notification under form button
@@ -161,4 +164,12 @@ function alertOn() {
 // Hides "copied" notification under form button
 function alertOff() {
     alert.style.visibility = 'hidden';
+}
+
+function downloadSignature() {
+    let link = document.createElement("a");
+    link.href = window.URL.createObjectURL(new Blob([signatureWrapper.innerHTML], {type: "text/html"}));
+    link.download = `${renderEmail.firstChild.innerText.split('@')[0]}.html`;
+    link.click();
+    document.removeChild(link);
 }
