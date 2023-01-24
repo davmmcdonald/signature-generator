@@ -106,6 +106,8 @@ if (urlParameters.get('hidemobile')) {
 }
 
 if (window.location.search.includes('?')) {
+    formOffice.style.display = 'none';
+    formOffice.previousElementSibling.style.display = 'none';
     formName.readOnly = true;
     formTitle.readOnly = true;
     formEmail.readOnly = true;
@@ -114,7 +116,6 @@ if (window.location.search.includes('?')) {
     formHideMobile.previousElementSibling.style.display = 'none';
     formHTML.style.display = 'none';
     formHTML.previousElementSibling.style.display = 'none';
-    downloadButton.style.display = 'none';
     emailButton.style.display = 'none';
 }
 
