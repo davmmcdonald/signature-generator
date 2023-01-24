@@ -246,4 +246,3 @@ function downloadSignature() {
     link.click();
     document.removeChild(link);
 }
-

@@ -110,9 +110,18 @@ input[type=checkbox] {
     margin-top: 8px;
     font-family: 'Open Sans', sans-serif;
     font-size: 15px;
-    color: #eee;
+    color: #888;
 }
 
 #hidden {
     display: none;
+}
+
+.help {
+    margin-top: 8px;
+    color: #fff;
+}
+
+.help a {
+    color: inherit;
 }
