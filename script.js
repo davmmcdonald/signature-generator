@@ -169,7 +169,7 @@ function alertOff() {
 function downloadSignature() {
     let link = document.createElement("a");
     link.href = window.URL.createObjectURL(new Blob([signatureWrapper.innerHTML], {type: "text/html"}));
-    link.download = `${renderEmail.firstChild.innerText.split('@')[0]}.html`;
+    link.download = `${renderEmail.firstChild.innerText.split('@')[0]}.htm`;
     link.click();
     document.removeChild(link);
 }
