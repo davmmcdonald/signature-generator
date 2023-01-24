@@ -152,7 +152,6 @@ function copyHTML() {
     document.execCommand('copy');
     document.removeEventListener('copy', listener);
     alertOn();
-    downloadSignature();
   }
 
 // Shows "copied" notification under form button
