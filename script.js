@@ -1,5 +1,5 @@
 // Initialize preset information for each office location
-let offices = [
+const offices = [
     {
         'name': 'network',
         'phone': '719.955.0527',
@@ -38,72 +38,108 @@ let offices = [
     },
 ];
 
-// Select various elements in the HTML
+const defaultContact = {
+    'name': 'David McDonald',
+    'title': 'Marketing Manager',
+    'email': 'dmcdonald@hoffleigh.com',
+    'mobile': '719.955.0527'
+}
+
+// Select form fields
 const formOffice = document.getElementById('office');
+const formHideMobile = document.getElementById('hideMobile');
 const formName = document.getElementById('name');
-const renderName = document.getElementById('renderName');
 const formTitle = document.getElementById('title');
-const renderTitle = document.getElementById('renderTitle');
-const formPhone = document.getElementById('phone');
-const renderPhone = document.getElementById('renderPhone');
 const formEmail = document.getElementById('email');
+const formMobile = document.getElementById('mobile');
 const formHTML = document.getElementById('html');
+
+// Select preview signature fields
+const renderName = document.getElementById('renderName');
+const renderTitle = document.getElementById('renderTitle');
 const renderEmail = document.getElementById('renderEmail');
-const renderOfficePhone = document.getElementById('renderOfficePhone');
+const renderMobile = document.getElementById('renderMobile');
+const renderPhone = document.getElementById('renderPhone');
 const renderAddress = document.getElementById('renderAddress');
 const renderFacebook = document.getElementById('renderFacebook');
 const renderTwitter = document.getElementById('renderTwitter');
 const renderInstagram= document.getElementById('renderInstagram');
 const renderLinkedin = document.getElementById('renderLinkedin');
 const renderHTML = document.getElementById('renderHTML');
+
+// Select various form buttons and UI elements
 const copyButton = document.getElementById('copyButton');
 const downloadButton = document.getElementById('downloadButton');
+const emailButton = document.getElementById('emailButton');
 const hidden = document.getElementById('hidden');
 const officePhone = document.getElementById('officePhone');
 const mobilePhone = document.getElementById('mobilePhone');
-const signatureWrapper = document.getElementById('signatureWrapper');
 const alert = document.getElementById('alert');
+const signatureWrapper = document.getElementById('signatureWrapper');
 
 // Pull in search parameters, if they exist
 const urlParameters = new URLSearchParams(window.location.search);
+
 if (urlParameters.get('office')) {
     formOffice.value = urlParameters.get('office');
+    updateOffice();
 }
 if (urlParameters.get('name')) {
     formName.value = urlParameters.get('name');
+    updateName();
+}
+if (urlParameters.get('title')) {
+    formTitle.value = urlParameters.get('title');
+    updateTitle();
 }
 if (urlParameters.get('email')) {
     formEmail.value = urlParameters.get('email');
+    updateEmail();
 }
-if (urlParameters.get('phone')) {
-    formPhone.value = urlParameters.get('phone');
+if (urlParameters.get('mobile')) {
+    formMobile.value = urlParameters.get('mobile');
+    updateMobile();
+}
+if (urlParameters.get('hidemobile')) {
+    formHideMobile.checked = urlParameters.get('hidemobile') === 'true';
+    toggleMobile();
+}
+
+if (window.location.search.includes('?')) {
+    formName.readOnly = true;
+    formTitle.readOnly = true;
+    formEmail.readOnly = true;
+    formMobile.readOnly = true;
+    formHideMobile.style.display = 'none';
+    formHideMobile.previousElementSibling.style.display = 'none';
+    formHTML.style.display = 'none';
+    formHTML.previousElementSibling.style.display = 'none';
+    downloadButton.style.display = 'none';
+    emailButton.style.display = 'none';
 }
 
 // Set up event listeners for changes in form
 formOffice.addEventListener('change', updateOffice);
+formHideMobile.addEventListener('change', toggleMobile);
 formName.addEventListener('change', updateName);
 formTitle.addEventListener('change', updateTitle);
-formPhone.addEventListener('change', updatePhone);
+formMobile.addEventListener('change', updateMobile);
 formEmail.addEventListener('change', updateEmail);
 formHTML.addEventListener('change', updateHTML);
 copyButton.addEventListener('click', copyHTML);
 downloadButton.addEventListener('click', downloadSignature);
+emailButton.addEventListener('click', copyURL);
 
 // Update office phone and address, as defined in the office array
 function updateOffice() {
     const result = offices.filter(office => office.name === formOffice.value);
-    renderOfficePhone.firstChild.innerText = result[0].phone;
-    renderOfficePhone.firstChild.href = `tel:${result[0].phone}`;
+    renderPhone.firstChild.innerText = result[0].phone;
+    renderPhone.firstChild.href = `tel:${result[0].phone}`;
     renderAddress.innerText = result[0].address;
     renderFacebook.href = result[0].facebook;
     renderTwitter.href = result[0].twitter;
     renderInstagram.href = result[0].instagram;
     renderLinkedin.href = result[0].linkedin;
-    if (formOffice.value === 'network') {
-        hidden.appendChild(mobilePhone);
-    } else {
-        officePhone.parentElement.insertBefore(mobilePhone, officePhone);
-    }
 }
 
 // Update signature name based on value entered in form
@@ -111,7 +147,7 @@ function updateName() {
     if (formName.value !== '') {
         renderName.innerText = formName.value;
     } else {
-        renderName.innerText = 'David McDonald';
+        renderName.innerText = defaultContact.name;
     }
 }
 
@@ -120,40 +156,49 @@ function updateTitle() {
     if (formTitle.value !== '') {
         renderTitle.innerText = formTitle.value;
     } else {
-        renderTitle.innerText = 'Marketing Manager';
+        renderTitle.innerText = defaultContact.title;
     }
 }
 // Update signature mobile phone based on value entered in form
-function updatePhone() {
-    if (formPhone.value !== '') {
-        formPhone.value = formPhone.value.replace(/\D/g,'');
-        if (formPhone.value.length === 10) {
-            formPhone.value = `${formPhone.value.slice(0,3)}.${formPhone.value.slice(3,6)}.${formPhone.value.slice(6)}`;
+function updateMobile() {
+    if (formMobile.value !== '') {
+        formMobile.value = formMobile.value.replace(/\D/g,'');
+        if (formMobile.value.length === 10) {
+            formMobile.value = `${formMobile.value.slice(0,3)}.${formMobile.value.slice(3,6)}.${formMobile.value.slice(6)}`;
         }
-        renderPhone.firstChild.innerText = formPhone.value;
-        renderPhone.firstChild.href = `tel:${formPhone.value}`;
+        renderMobile.firstChild.innerText = formMobile.value;
+        renderMobile.firstChild.href = `tel:${formMobile.value}`;
     } else {
-        renderPhone.firstChild.innerText = '719.955.0527';
-        renderPhone.firstChild.href = 'tel:719.955.0527';
+        renderMobile.firstChild.innerText = defaultContact.mobile;
+        renderMobile.firstChild.href = `tel:${defaultContact.mobile}`;
     }
 }
 
 // Update signature email based on value entered in form
 function updateEmail() {
     if (formEmail.value !== '') {
+        formEmail.value = formEmail.value.replace(/ /g, '');
         if (!formEmail.value.includes('@')) {
             formEmail.value = `${formEmail.value}@hoffleigh.com`;
         }
         renderEmail.firstChild.innerText = formEmail.value;
         renderEmail.firstChild.href = `mailto:${formEmail.value}`;
     } else {
-        renderEmail.firstChild.innerText = 'dmcdonald@hoffleigh.com';
-        renderEmail.firstChild.href = 'mailto:dmcdonald@hoffleigh.com';
+        renderEmail.firstChild.innerText = defaultContact.email;
+        renderEmail.firstChild.href = `mailto:${defaultContact.email}`;
     }
 }
 
 function updateHTML() {
     renderHTML.innerHTML = formHTML.value;
+}
+
+function toggleMobile() {
+    if (formHideMobile.checked) {
+        hidden.appendChild(mobilePhone);
+    } else {
+        officePhone.parentElement.insertBefore(mobilePhone, officePhone);
+    }
 }
 
 // Copy signature as rich text to clipboard for pasting in Outlook
@@ -162,6 +207,19 @@ function copyHTML() {
       event.preventDefault();
       event.clipboardData.setData('text/html', signatureWrapper.innerHTML);
       event.clipboardData.setData('text/plain', signatureWrapper.innerHTML);
+    };
+    document.addEventListener('copy', listener);
+    document.execCommand('copy');
+    document.removeEventListener('copy', listener);
+    alertOn();
+  }
+
+// Copy signature URL with parameters
+function copyURL() {
+    const listener = event => {
+      event.preventDefault();
+      const param = `?office=${formOffice.value}&name=${formName.value.replace(/ /g, '%20')}&title=${formTitle.value.replace(/ /g, '%20')}&email=${formEmail.value}&mobile=${formMobile.value}&hidemobile=${formHideMobile.checked}`;
+      event.clipboardData.setData('text/plain', `https://davmmcdonald.github.io/signature-generator/${param}`);
     };
     document.addEventListener('copy', listener);
     document.execCommand('copy');

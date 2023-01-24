@@ -71,6 +71,11 @@ input, textarea {
     outline: none;
 }
 
+input[type=checkbox] {
+    display: block;
+    width: auto;
+}
+
 .btn-main {
     width: 100%;
     margin-top: 12px;

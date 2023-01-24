@@ -20,32 +20,31 @@
             <img src="assets/hoffleigh-logo.jpg" class="logo">
         </div>
         <h1>Signature Generator</h1>
-        <label for="office">Office Template</label>
-        <select id="office" name="office">
-            <option value="network">Network</option>
-            <option value="colorado-springs">Colorado Springs</option>
-            <option value="denver">Denver</option>
-            <option value="northeast-ohio">Northeast Ohio</option>
-        </select>
-        <label for="name">Full Name</label>
-        <input type="text" id="name" name="name">
-        <label for="title">Title</label>
-        <input type="text" id="title" name="title"> 
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" placeholder="@hoffleigh.com not needed">
-        <label for="phone">Mobile Phone</label>
-        <input type="tel" id="phone" name="phone">
-        <label for="html">Custom HTML</label>
-        <textarea id="html" name="html"></textarea>
-        <button class="btn-main" id="copyButton">Copy to Clipboard</button>
-        <button class="btn-main" id="downloadButton">Download File</button>
+            <label for="office">Office Template</label>
+            <select id="office" name="office">
+                <option value="network">Network</option>
+                <option value="colorado-springs">Colorado Springs</option>
+                <option value="denver">Denver</option>
+                <option value="northeast-ohio">Northeast Ohio</option>
+            </select>
+            <label for="hideMobile">Hide mobile phone?</label>
+            <input type="checkbox" id="hideMobile" name="hideMobile">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name">
+            <label for="title">Title</label>
+            <input type="text" id="title" name="title"> 
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="@hoffleigh.com not needed">
+            <label for="phone">Mobile Phone</label>
+            <input type="tel" id="mobile" name="mobile">
+            <label for="html">Custom HTML</label>
+            <textarea id="html" name="html"></textarea>
+            <button class="btn-main" id="copyButton">Copy to Clipboard</button>
+            <button class="btn-main" id="downloadButton">Download HTML File</button>
+            <button class="btn-main" id="emailButton">Copy Signature URL</button>
         <p id="alert" style="visibility: hidden;">Copied!</p>
     </div>
     <table id="hidden">
-        <tr id="mobilePhone"> 
-            <td style="width: 28px;"><img style="width: 20px;" src="https://www.hoffleigh.com/wp-content/uploads/2023/01/mobile.png"></td>
-            <td id="renderPhone" style="font-size: 13px; color: #888888;"><a href="tel:719.955.0527" style="color: #888888; text-decoration: none;">719.955.0527</a> (mobile)</td>
-        </tr>
     </table>
     <div class="preview">
         <div id="signatureWrapper">
@@ -73,9 +72,13 @@
                                 <td style="width: 28px;"><img style="width: 20px;" src="https://www.hoffleigh.com/wp-content/uploads/2023/01/email.png"></td>
                                 <td id="renderEmail" style="font-size: 13px;"><a href="mailto:dmcdonald@hoffleigh.com" style="color: #888888; text-decoration: none;">dmcdonald@hoffleigh.com</a></td>
                             </tr>
+                            <tr id="mobilePhone"> 
+                                <td style="width: 28px;"><img style="width: 20px;" src="https://www.hoffleigh.com/wp-content/uploads/2023/01/mobile.png"></td>
+                                <td id="renderMobile" style="font-size: 13px; color: #888888;"><a href="tel:719.955.0527" style="color: #888888; text-decoration: none;">719.955.0527</a> (mobile)</td>
+                            </tr>
                             <tr id="officePhone">
                                 <td style="width: 28px;"><img style="width: 20px;" src="https://www.hoffleigh.com/wp-content/uploads/2023/01/phone.png"></td>
-                                <td id="renderOfficePhone" style="font-size: 13px; color: #888888;"><a href="tel:719.955.0527" style="color: #888888; text-decoration: none;">719.955.0527</a> (office)</td>
+                                <td id="renderPhone" style="font-size: 13px; color: #888888;"><a href="tel:719.955.0527" style="color: #888888; text-decoration: none;">719.955.0527</a> (office)</td>
                             </tr>
                             <tr>
                                 <td style="width: 28px;"><img style="width: 20px;" src="https://www.hoffleigh.com/wp-content/uploads/2023/01/map-marker.png"></td>
