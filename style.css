@@ -125,3 +125,7 @@ input[type=checkbox] {
 .help a {
     color: inherit;
 }
+
+table {
+    font-size: 13px;
+}
